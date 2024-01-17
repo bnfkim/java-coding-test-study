@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class BOJ_2606_바이러스 {
 
   static int N, M, virusCount;
   static boolean graph[][], visited[];
