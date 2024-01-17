@@ -89,5 +89,4 @@ https://github.com/bnfkim/java-coding-test-study
 김규리, 김영표, 이태현, 이수창, 황영훈, 신권일, 백승헌, 주연수, 김동진
 [입문반]
 이정혁, 정연서, 황제철, 최원서, 박정민
-:slightly_smiling_face:
-다들 다같이 힘내봅시다 !
+
