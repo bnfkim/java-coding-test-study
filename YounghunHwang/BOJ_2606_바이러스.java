@@ -30,7 +30,7 @@ public class BOJ_2606_바이러스 {
     private static int BFS(List<Integer>[] graph) {
         int result = 0;
         boolean[] visited = new boolean[graph.length];
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new Deque<>();
         queue.add(1);
         visited[1] = true;
 
