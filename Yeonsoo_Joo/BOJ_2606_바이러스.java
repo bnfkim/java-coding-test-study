@@ -1,8 +1,10 @@
+package Yeonsoo_Joo;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main {
+public class BOJ_2606_바이러스 {
     static int v;
     static int[][] graph;
     static boolean[] visited;
