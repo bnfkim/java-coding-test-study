@@ -86,7 +86,7 @@ https://github.com/bnfkim/java-coding-test-study
 
 ### ✅ 참여인원
 [기본반]
-김규리(bnfkim), 김영표(menstoo95), 이태현(taehyeoon), 이수창(eternalclash),
+김규리(bnfkim), 김영표(menstoo95), 이태현(taehyeoon), 이수창(eternalclash), </br>
 황영훈(happyhun), 신권일(shin5774), 백승헌(elic121), 주연수(jooys130), 김동진(koreankdj)
 
 </br>
