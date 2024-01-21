@@ -86,7 +86,10 @@ https://github.com/bnfkim/java-coding-test-study
 
 ### ✅ 참여인원
 [기본반]
-김규리, 김영표, 이태현, 이수창, 황영훈, 신권일, 백승헌, 주연수, 김동진
+김규리(bnfkim), 김영표(menstoo95), 이태현(taehyeoon), 이수창(eternalclash), </br>
+황영훈(happyhun), 신권일(shin5774), 백승헌(elic121), 주연수(jooys130), 김동진(koreankdj)
+
+</br>
 [입문반]
-이정혁, 정연서, 황제철, 최원서, 박정민
+이정혁(walkwalkwalkz), 정연서(yeondori), 황제철(HwangBaco), 최원서(Wonseo-C), 박정민(inmyownway)
 
