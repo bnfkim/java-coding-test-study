@@ -2,9 +2,8 @@ import java.io.*;
 import java.util.*;
 
 class Point {
-
   int x, y;
-
+  
   Point(int x, int y) {
     this.x = x;
     this.y = y;
