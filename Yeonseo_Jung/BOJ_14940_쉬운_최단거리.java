@@ -30,6 +30,10 @@ public class BOJ_14940_쉬운_최단거리 {
                     targetX = i;
                     targetY = j;
                 }
+                if (map[i][j] == 0) {
+                    sol[i][j] = 0;
+                    continue;
+                }
                 sol[i][j] = -1;
             }
         }
@@ -42,11 +46,7 @@ public class BOJ_14940_쉬운_최단거리 {
     private static void printSol() {
         for (int i = 0; i < sol.length; i++) {
             for (int j = 0; j < sol[i].length; j++) {
-                if (map[i][j] == 0) {
-                    System.out.print("0 ");
-                } else {
-                    System.out.print(sol[i][j] + " ");
-                }
+                System.out.print(sol[i][j] + " ");
             }
             System.out.println();
         }
@@ -70,6 +70,7 @@ public class BOJ_14940_쉬운_최단거리 {
                 int ny = y + dy[i];
 
                 if (!isInvalid(nx, ny) && map[nx][ny] == 1 && !visited[nx][ny]) {
+
                     queue.offer(new int[]{nx, ny});
                     visited[nx][ny] = true;
                     sol[nx][ny] = sol[x][y] + 1;
