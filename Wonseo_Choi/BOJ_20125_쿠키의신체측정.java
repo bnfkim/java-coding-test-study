@@ -1,5 +1,3 @@
-package basic;
-
 import java.io.*;
 
 public class BOJ_20125_쿠키의신체측정 {
