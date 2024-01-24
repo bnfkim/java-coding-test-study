@@ -2,11 +2,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
+import java.util.stream.Collectors;
 
-public class BOJ_2529_부등호 {
+public class Main {
 
     static int k;
     static String[] sign;
+    static int[] nums;
+    static boolean[] visit;
     static ArrayList<String> results = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
@@ -16,48 +19,47 @@ public class BOJ_2529_부등호 {
         k = Integer.parseInt(br.readLine());
         sign = br.readLine().split(" ");
 
-        int[] nums = new int[k+1]; //숫자저장 배열
-        boolean[] visit = new boolean[10];
+        nums = new int[k+1]; //숫자저장 배열
+        visit = new boolean[10];
 
-        insert(0, nums, visit);
+        insert(0);
 
         Collections.sort(results);
         System.out.println(results.get(results.size()-1));
         System.out.println(results.get(0));
     }
-    public static void insert(int idx, int[] nums, boolean[] visit) {
-
-        //종료조건1
+    public static void insert(int idx) {
         if(idx == k+1) {
-            results.add(convertString(nums));
+            results.add(ConvertToString(nums));
             return;
         }
 
         for(int i=0; i<10; i++) {
             if(visit[i]) continue;
-
-            if(idx != 0) {
-                if(sign[idx-1].equals("<")) {
-                    if (nums[idx-1] > i) continue;
-                }
-                else {
-                    if (nums[idx-1] < i) continue;
-                }
-            }
+            if(idx != 0 && isNotInvalidSign(idx, i)) continue;
 
             visit[i] = true;
             nums[idx] = i;
-            insert(idx+1, nums, visit);
+
+            insert(idx+1);
+
+            //백 트래킹
             nums[idx] = 0;
             visit[i] = false;
         }
     }
 
-    static String convertString(int[] nums) {
-        StringBuilder sb = new StringBuilder();
-        for(int num : nums) {
-            sb.append(num);
+    public static boolean isNotInvalidSign(int idx, int currentNum) {
+        if (sign[idx-1].equals("<")) {
+            return nums[idx-1] > currentNum;
+        } else {
+            return nums[idx-1] < currentNum;
         }
-        return sb.toString();
+    }
+
+    static String ConvertToString(int[] nums) {
+        return Arrays.stream(nums)
+                .mapToObj(String::valueOf)
+                .collect(Collectors.joining());
     }
 }
