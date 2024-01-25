@@ -15,9 +15,9 @@ public static void main(String[] args) throws IOException {
     l = Integer.parseInt(st.nextToken());
     c = Integer.parseInt(st.nextToken());
 
-    st = new StringTokenizer(in.readLine());
+    String[] characters = in.readLine().split(" ");
     for (int i = 0; i < c; i++) {
-        arr[i] = st.nextToken().charAt(0);
+        arr[i] = characters[i].charAt(0);
     }
 
     Arrays.sort(arr, 0, c);
@@ -27,20 +27,20 @@ public static void main(String[] args) throws IOException {
 static void backtrack(int idx, int cnt) {
     if (cnt == l) {
         String res = "";
-        int v = 0, c = 0;
+        int vowel = 0, consonant = 0;
 
         for (int i = 0; i < c; i++) {
             if (visited[i]) {
                 res += arr[i];
                 if (arr[i] == 'a' || arr[i] == 'e' || arr[i] == 'i' || arr[i] == 'o' || arr[i] == 'u') {
-                    v++;
+                    vowel++;
                 } else {
-                    c++;
+                    consonant++;
                 }
             }
         }
 
-        if (v > 0 && c > 1) {
+        if (vowel > 0 && consonant > 1) {
             System.out.println(res);
         }
 
