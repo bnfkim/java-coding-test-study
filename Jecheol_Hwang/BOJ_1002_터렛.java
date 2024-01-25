@@ -57,9 +57,11 @@ public class BOJ_1002_터렛 {
         }
     }
 
+
     public static double square(int n) {
         return Math.pow(n, 2);
     }
+
 
     public static double distance() {
         double num = square(y1 - y2) + square(x1 - x2);
