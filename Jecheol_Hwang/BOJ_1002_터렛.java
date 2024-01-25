@@ -39,11 +39,8 @@ public class BOJ_1002_터렛 {
             } else if (r1 + r2 > distance()) {
                 System.out.println(2);
             }
-
         }
-
     }
-
     private static void setFormerBigger() {
         if (r1 < r2) {
             int temp = r1;
