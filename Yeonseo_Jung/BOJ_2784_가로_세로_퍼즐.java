@@ -10,7 +10,6 @@ public class BOJ_2784_가로_세로_퍼즐 {
     static boolean solved = false;
 
     //순열
-    static int[] target = new int[]{0, 1, 2, 3, 4, 5};
     static boolean[] visited = new boolean[INPUT_NUM];
     static int[] result = new int[PUZZLE_NUM];
 
@@ -21,7 +20,7 @@ public class BOJ_2784_가로_세로_퍼즐 {
             input.add(br.readLine());
         }
 
-        findAndAddAnswers(0);
+        findAnswers(0);
 
         if(!solved) {
             System.out.println(0);
@@ -60,7 +59,7 @@ public class BOJ_2784_가로_세로_퍼즐 {
         return leftInput.isEmpty();
     }
 
-    private static void findAndAddAnswers(int cnt) {
+    private static void findAnswers(int cnt) {
         if (cnt == PUZZLE_NUM) {
             String[][] answer = generatePuzzle(result);
             if (answer != null) {
@@ -74,8 +73,8 @@ public class BOJ_2784_가로_세로_퍼즐 {
                 continue;
             }
             visited[i] = true;
-            result[cnt] = target[i];
-            findAndAddAnswers(cnt + 1);
+            result[cnt] = i;
+            findAnswers(cnt + 1);
             visited[i] = false;
 
             if(solved) {
