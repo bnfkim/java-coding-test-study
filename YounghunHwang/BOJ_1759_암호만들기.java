@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-public class Main {
+public class BOJ_1759_암호만들기 {
 
     static int L, C;
     static char[] letters;
