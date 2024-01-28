@@ -4,46 +4,39 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
+import java.util.stream.Stream;
 
 public class BOJ_14719_빗물 {
-    private static int h, w;
-    private static int[] arr;
-    private static int left, right;
-    private static int res;
+    /*
+    * time complexity : O(N^2)
+    * */
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        h = Integer.parseInt(st.nextToken());
-        w = Integer.parseInt(st.nextToken());
+        int h = Integer.parseInt(st.nextToken());
+        int w = Integer.parseInt(st.nextToken());
 
-        arr = new int[w];
-        st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < w; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
-        }
-        res = 0;
+        int[] arr = Stream.of(br.readLine().split(" "))
+                .mapToInt(Integer::parseInt)
+                .toArray();
 
-        for (int i = 0; i < w; i++) {
-            if (arr[i] > 0) {
-                left = i;
-                break;
+        int res = 0;
+
+        for (int i = 1; i < w - 1; i++) {
+            int left = 0;
+            int right = w - 1;
+            for (int j = 0; j <= i; j++) {
+                left = arr[left] > arr[j] ? left : j;
             }
+            for (int j = i; j < w; j++) {
+                right = arr[right] > arr[j] ? right : j;
+            }
+            int std = Math.min(arr[left], arr[right]);
+            res += std - arr[i];
         }
 
-        right = left + 1;
-        for (int i = left + 1; i < w; i++) {
-            right = arr[i] >= arr[right] ? i : right;
-            if (i == w - 1 || arr[left] <= arr[right]) {
-                int std = arr[left] < arr[right] ? arr[left] : arr[right];
-                for (int j = left + 1; j < right; j++) {
-                    res += std - arr[j];
-                }
-                left = i;
-                right = i + 1 < w ? i + 1 : i;
-            }
-        }
         System.out.println(res);
     }
 }
