@@ -28,8 +28,7 @@ public class BOJ_14501_퇴사 {
             getProfit(i, 0);
         }
 
-        int maxProfit = Collections.max(profits).intValue();
-        System.out.println(maxProfit);
+        System.out.println(Collections.max(profits).intValue());
     }
 
     private static void getProfit(int start, int totalProfit) {
