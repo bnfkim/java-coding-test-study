@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 public class SWA_1288_새로운불면증치료법{
     public static int N;
     public static int[] nums;
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(br.readLine());
@@ -26,7 +25,6 @@ public class SWA_1288_새로운불면증치료법{
                 }
                 idx++;
             }
-
             System.out.println("#" + (tc+1) + " " + result);
         }
     }
