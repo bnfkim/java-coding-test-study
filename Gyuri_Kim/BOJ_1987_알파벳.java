@@ -44,7 +44,7 @@ public class BOJ_1987_알파벳 {
             int nx = x + dx[i];
             int ny = y + dy[i];
 
-            if(outOfRange(nx, ny)) continue;
+            if(nx<0 || ny<0 || nx>=C || ny>=R) continue;
 
             char na = map[ny][nx];
 
@@ -58,19 +58,5 @@ public class BOJ_1987_알파벳 {
             dfs(cnt+1, nx, ny);
             visit[na - 'A'] = false;
         }
-    }
-
-    static boolean outOfRange(int x, int y) {
-        return x<0 || y<0 || x>=C || y>=R;
-    }
-
-    static void print() {
-        for(int i=0; i<R; i++) {
-            for(int j=0; j<C; j++) {
-                System.out.print(map[i][j] + " ");
-            }
-            System.out.println();
-        }
-
     }
 }
