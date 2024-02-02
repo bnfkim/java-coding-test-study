@@ -35,7 +35,7 @@ public class BOJ_2785_체인 {
 
     private static void countChains(int n) {
         // 모두 연결되어 더이상 연결할 체인이 없는 경우
-        if (n <= 1 || ptr >= N) {
+        if (n <= 1) {
             return;
         }
         // 1개의 고리가 있는 체인을 가진 경우 이를 이용해 두개의 체인을 연결할 수 있다.
