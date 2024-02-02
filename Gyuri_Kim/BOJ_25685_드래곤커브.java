@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 
 public class BOJ_25685_드래곤커브 {
     static int N;
-    static ArrayList<Integer> dotList;
+    static ArrayList<Integer> directions;
     static boolean[][] checked;
     static int[] dx = {1, 0, -1, 0};
     static int[] dy = {0, -1, 0, 1};
@@ -23,33 +23,26 @@ public class BOJ_25685_드래곤커브 {
             int d = Integer.parseInt(st.nextToken());
             int g = Integer.parseInt(st.nextToken());
 
-            getDotList(d, g);
-            checkDot(x, y);
+            getDirections(d, g);
+            setDragonCurve(x, y);
         }
         System.out.println(getDragonCurve());
     }
-    static void getDotList(int d, int g) {
-        int startGeneration = 1;
+    static void getDirections(int d, int g) {
+        directions = new ArrayList<>();
+        directions.add(d);
 
-        dotList = new ArrayList<>(); //[1] [2]
-        dotList.add(d);
-
-        while(startGeneration <= g) {
-
-            for(int i=dotList.size()-1; i>=0; i--) {
-                int nextDirection = dotList.get(i) + 1;
-                if(nextDirection == 4) nextDirection = 0;
-
-                dotList.add(nextDirection);
+        for (int k=0; k<g; k++) {
+            for(int i=directions.size()-1; i>=0; i--) {
+                directions.add((directions.get(i) + 1) % 4);
             }
-            startGeneration++;
         }
     }
 
-    static void checkDot(int x, int y) {
+    static void setDragonCurve(int x, int y) {
         checked[y][x] = true;
 
-        for(int dot : dotList) {
+        for(int dot : directions) {
             int nx = x + dx[dot];
             int ny = y + dy[dot];
 
@@ -62,21 +55,13 @@ public class BOJ_25685_드래곤커브 {
     }
 
     static int getDragonCurve() {
-        int result = 0;
-
+        int cnt = 0;
         for(int i=0; i<100; i++) {
             for(int j=0; j<100; j++) {
-                int cnt = 0;
-                //네 꼭짓점 탐색
-                if(checked[i][j]) cnt+= 1;
-                if(checked[i+1][j]) cnt+= 1;
-                if(checked[i][j+1]) cnt+= 1;
-                if(checked[i+1][j+1]) cnt+= 1;
-
-                if(cnt==4) result++;
+                if(checked[i][j] && checked[i+1][j] && checked[i][j+1] && checked[i+1][j+1]) cnt++;
             }
         }
-        return result;
+        return cnt;
     }
 
     static boolean outOfRange(int x, int y) {
