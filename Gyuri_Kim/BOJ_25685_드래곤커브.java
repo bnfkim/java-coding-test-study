@@ -67,6 +67,7 @@ public class BOJ_25685_드래곤커브 {
         for(int i=0; i<100; i++) {
             for(int j=0; j<100; j++) {
                 int cnt = 0;
+                //네 꼭짓점 탐색
                 if(checked[i][j]) cnt+= 1;
                 if(checked[i+1][j]) cnt+= 1;
                 if(checked[i][j+1]) cnt+= 1;
