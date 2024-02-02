@@ -24,13 +24,14 @@ public class BOJ_15685_드래곤커브 {
       this.y = y;
       this.d = d;
       this.g = g;
-      this.S = new Point(this.x, this.y);
-      this.E = new Point(S.x + dx[d], S.y + dy[d]);
-      arr[x][y] = 1;
+      S = new Point(x, y);
+      E = new Point(S.x + dx[d], S.y + dy[d]);
+      arr[S.x][S.y] = 1;
       arr[E.x][E.y] = 1;
-      this.que = new ArrayDeque<>();
-      this.que.add(this.S);
-      this.que.add(this.E);
+      que = new ArrayDeque<>();
+      que.add(S);
+      que.add(E);
+      move();
     }
 
     void move() {
@@ -42,17 +43,16 @@ public class BOJ_15685_드래곤커브 {
 
     void generate() {
       Point tmp = que.removeLast();
-      this.E = new Point(tmp.x, tmp.y);
+      E = new Point(tmp.x, tmp.y);
       que.add(tmp);
-      this.currentG++;
+      currentG++;
     }
 
     void make() {
-      ArrayDeque<Point> tmp = clone(que.iterator());
-
-      this.S = tmp.removeLast();
+      ArrayDeque<Point> tmp = que.clone();
+      S = tmp.removeLast();
       while (!tmp.isEmpty()) {
-        Point newP = rotatePoint(tmp.removeLast(), this.E);
+        Point newP = rotatePoint(tmp.removeLast(), E);
         if (isPossible(newP.x, newP.y)) {
           arr[newP.x][newP.y] = 1;
         }
@@ -65,19 +65,9 @@ public class BOJ_15685_드래곤커브 {
       int Y = e.y - s.x + e.x;
       return new Point(X, Y);
     }
-
-    ArrayDeque<Point> clone(Iterator<Point> arr) {
-      ArrayDeque<Point> tmp = new ArrayDeque<>();
-      while (arr.hasNext()) {
-        Point pop = arr.next();
-        Point push = new Point(pop.x, pop.y);
-        tmp.add(push);
-      }
-      return tmp;
-    }
   }
 
-  static int N, CNT;
+  static int N, CNT, x, y, d, g;
   static int arr[][];
   static final int[] dx = { 0, -1, 0, 1 };
   static final int[] dy = { 1, 0, -1, 0 };
@@ -91,12 +81,11 @@ public class BOJ_15685_드래곤커브 {
 
     for (int i = 0; i < N; i++) {
       st = new StringTokenizer(br.readLine());
-      int x = Integer.parseInt(st.nextToken());
-      int y = Integer.parseInt(st.nextToken());
-      int d = Integer.parseInt(st.nextToken());
-      int g = Integer.parseInt(st.nextToken());
-      Dragon dragon = new Dragon(y, x, d, g);
-      dragon.move();
+      x = Integer.parseInt(st.nextToken());
+      y = Integer.parseInt(st.nextToken());
+      d = Integer.parseInt(st.nextToken());
+      g = Integer.parseInt(st.nextToken());
+      new Dragon(y, x, d, g);
     }
 
     check();
@@ -109,11 +98,10 @@ public class BOJ_15685_드래곤커브 {
         if (arr[i][j] == 0) continue;
         if (!isPossible(i + 1, j)) continue;
         if (!isPossible(i, j + 1)) continue;
-        if (
+        CNT +=
           arr[i + 1][j] == 1 && arr[i][j + 1] == 1 && arr[i + 1][j + 1] == 1
-        ) {
-          CNT++;
-        }
+            ? 1
+            : 0;
       }
     }
   }
