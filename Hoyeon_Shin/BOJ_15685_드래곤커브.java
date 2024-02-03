@@ -11,8 +11,8 @@ class Main {
 	
 	public static void main(String[] args) throws IOException {
 		
-		// 왼쪽으로 시작하는 10세대 dragon curve까지 만들 수 있는 방향을 생성
-		// curve[0] ~ [2^g - 1] : 왼쪽으로 시작해 g세대 dragon curve를 만들 수 있는 방향 순서
+		// 오른쪽으로 시작하는 10세대 dragon curve까지 만들 수 있는 방향을 생성
+		// curve[0] ~ [2^g - 1] : 오른쪽으로 시작해 g세대 dragon curve를 만들 수 있는 방향 순서
 		List<Integer> curve = new ArrayList<>();
 		curve.add(0);  // 0 세대 방향 →
 		
