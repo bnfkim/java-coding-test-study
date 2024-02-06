@@ -40,8 +40,8 @@ public class SubSetTest3 {
 			}
 		}
 		
-		for(int i = 0; i < 101; i++) {
-			for(int j = 0; j < 101; j++) {
+		for(int i = 0; i < 100; i++) {
+			for(int j = 0; j < 100; j++) {
 				if(board[i][j] && board[i][j+1] && board[i+1][j] && board[i+1][j+1])
 	                ans++;
 			}
