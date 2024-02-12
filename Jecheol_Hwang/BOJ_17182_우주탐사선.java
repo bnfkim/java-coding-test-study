@@ -1,5 +1,3 @@
-package 알고리즘연습.boj;
-
 import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
