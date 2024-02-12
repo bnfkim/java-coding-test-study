@@ -6,12 +6,13 @@ import java.util.StringTokenizer;
 
 public class BOJ_17182_우주탐사선 {
     /*
+    * 티어 : 골드3
+    *
     * 수행 시간 : 188 ms
     *
     * 메모리 : 15912 MB
     *
     * 시간복잡도 : O(N^3 * N!); 플로이드와셜 * 넥퍼
-    *
     * */
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
