@@ -10,7 +10,7 @@ public class BOJ_17182_우주탐사선 {
     *
     * 메모리 : 15912 MB
     *
-    * 시간복잡도 : O(N^3 * N!); 플로이드와셜 * 넥퍼
+    * 시간복잡도 : O(N^3 + N!); 플로이드와셜 + 넥퍼
     * */
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
