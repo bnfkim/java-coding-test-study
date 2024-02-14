@@ -22,6 +22,7 @@ public class BOJ_1013_Contact {
                 sb.append("NO\n");
             }
         }
+
         System.out.println(sb.toString().trim());
     }
 }
