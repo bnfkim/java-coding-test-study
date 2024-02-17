@@ -32,10 +32,9 @@ public class BOJ_16928_뱀과사다리게임 {
             int pos = que.pop();
 
             for (int i = 1; i <= 6; i++) {
-                int next = pos + i;
+                int next = map.getOrDefault(pos + i, pos + i);
                 if (next > 100 || route[next] != 0) continue;
-                next = map.getOrDefault(next, next);
-                if (route[next] != 0) continue;
+                
                 route[next] = route[pos] + 1;
                 if (next == 100) return;
                 que.add(next);
