@@ -79,6 +79,7 @@ public class BOJ_11559_뿌요뿌요 {
             points.clear();
         }
 
+        
         System.out.println(ans);
     }
 }
