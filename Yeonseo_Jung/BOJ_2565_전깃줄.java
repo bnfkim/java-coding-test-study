@@ -20,6 +20,7 @@ public class BOJ_2565_전깃줄 {
             return this.from - o.from;
         }
     }
+
     static int N;
     static Wire[] wires;
     static int[] dp;
