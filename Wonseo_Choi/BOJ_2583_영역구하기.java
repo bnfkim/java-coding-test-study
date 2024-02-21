@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class BOJ_2586_영역구하기 {
+public class BOJ_2583_영역구하기 {
     // static boolean[] visited;
     static boolean[][] arr;
     static int N, M;
