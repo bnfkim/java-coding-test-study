@@ -12,7 +12,7 @@ public class Main {
 	static boolean map[][];	
 	static int[] parents;
 	static int[] route;
-
+//test
 	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		n = Integer.parseInt(br.readLine());
