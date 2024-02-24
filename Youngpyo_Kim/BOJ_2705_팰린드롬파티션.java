@@ -19,7 +19,7 @@ public class BOJ_2705_팰린드롬파티션 {
                 dp[i] = dp[i - 2] + dp[i / 2];
             }
         }
-
+  
         while (t-- > 0) {
             n = Integer.parseInt(br.readLine());
             System.out.println(dp[n]);
