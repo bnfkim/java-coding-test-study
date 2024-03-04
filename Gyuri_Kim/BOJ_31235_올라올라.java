@@ -28,7 +28,6 @@ public class Main_31235_올라올라 {
                 now = next;
             }
         }
-
         System.out.println(Math.max(cnt, answer));
     }
 }
