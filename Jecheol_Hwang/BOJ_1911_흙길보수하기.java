@@ -23,12 +23,12 @@ import java.util.*;
  * -> 시작점 기준으로 그리디하게 배치하면 될듯.
  *
  * @algorithm 그리디
- * @time O(N) -> 260 ms
+ * @time O(N * log N) -> 260 ms
  * @memory O(N) -> 20876 KB
  */
 public class BOJ_1911_흙길보수하기 {
     private static int N, L;
-    private static long[][] arr;
+    private static int[][] arr;
     private static long ans;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -39,7 +39,7 @@ public class BOJ_1911_흙길보수하기 {
         st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
         L = Integer.parseInt(st.nextToken());
-        arr = new long[N][2];
+        arr = new int[N][2];
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
@@ -51,7 +51,7 @@ public class BOJ_1911_흙길보수하기 {
         Arrays.sort(arr, Comparator.comparingLong(o -> o[0]));
 
         long lastIdx = 0; // 널빤지를 마지막으로 둔 위치
-        for (long[] ptr : arr) {
+        for (int[] ptr : arr) {
             // 웅덩이 좌표 [s,e)
             long s = ptr[0];
             long e = ptr[1];
