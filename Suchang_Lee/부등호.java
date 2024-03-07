@@ -8,7 +8,7 @@ public class 부등호 {
     static long min = Long.MAX_VALUE;
     static long max = Long.MIN_VALUE;
 
-    public static void permutation (int[] num,int [] s,int count,int size) {
+    public static void permutation (int[] num,int [] s,int count,int size) -{
         if (count == K + 1) {
             if(check(k,s)){
                 String x = "";
