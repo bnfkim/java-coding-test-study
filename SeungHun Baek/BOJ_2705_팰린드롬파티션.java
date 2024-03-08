@@ -1,5 +1,3 @@
-package temp;
-
 import java.io.*;
 
 public class BOJ_2705_팰린드롬파티션 {
