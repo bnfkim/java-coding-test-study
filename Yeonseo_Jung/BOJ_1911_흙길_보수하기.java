@@ -52,7 +52,7 @@ public class BOJ_1911_흙길_보수하기 {
                 continue;
             }
             int en = st;
-            while (en < w.end) {
+            while (en < w.end) { // 널빤지가 웅덩이 길이보다 짧은 경우
                 en += L;   // 널빤지 두기
                 cnt++;
 
