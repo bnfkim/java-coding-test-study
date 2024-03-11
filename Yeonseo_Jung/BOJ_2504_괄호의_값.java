@@ -5,11 +5,11 @@ import java.util.Stack;
 
 public class BOJ_2504_괄호의_값 {
     static class Bracket {
-        char b;
+        char value;
         int num;
 
-        public Bracket(char b) {
-            this.b = b;
+        public Bracket(char value) {
+            this.value = value;
             this.num = 0;
         }
     }
@@ -20,16 +20,16 @@ public class BOJ_2504_괄호의_값 {
         Stack<Bracket> st = new Stack<>();
         int answer = 0, curScore = 0;
         for (int i = 0, size = input.length(); i < size; i++) {
-            char b = input.charAt(i);
-            if (b == '(' || b == '[') {
-                st.push(new Bracket(b));
+            char cur = input.charAt(i);
+            if (cur == '(' || cur == '[') {
+                st.push(new Bracket(cur));
             } else {
                 if (st.isEmpty()) {
                     answer = 0;
                     break;
                 }
                 Bracket curB = st.peek();
-                if (b == ')' && curB.b == '(') {
+                if (cur == ')' && curB.value == '(') {
                     curScore = curB.num == 0 ? 2 : 2 * curB.num;
                     st.pop();
                     if (!st.isEmpty()) {
@@ -37,7 +37,7 @@ public class BOJ_2504_괄호의_값 {
                     } else {
                         answer += curScore;
                     }
-                } else if (b == ']' && curB.b == '[') {
+                } else if (cur == ']' && curB.value == '[') {
                     curScore = curB.num == 0 ? 3 : 3 * curB.num;
                     st.pop();
                     if (!st.isEmpty()) {
