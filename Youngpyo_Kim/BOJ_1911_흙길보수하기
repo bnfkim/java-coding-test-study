@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static class info implements Comparable<info>{
+        int s, e;
+        info(int a, int b){
+            s = a;
+            e = b;
+        }
+
+        @Override
+        public int compareTo(info o){
+            return Integer.compare(this.s, o.s);
+        }
+    }
+
+    static int n, l, ans = 0;
+    static info[] arr;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        n = Integer.parseInt(st.nextToken());
+        l = Integer.parseInt(st.nextToken());
+        arr = new info[n];
+        for(int i = 0; i < n; i++){
+            st = new StringTokenizer(br.readLine());
+            arr[i] = new info(Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken()));
+        }
+        
+        Arrays.sort(arr);
+        
+        int tmp = 0;
+        for(int i = 0; i < n; i++){
+            if(arr[i].s > tmp) tmp = arr[i].s;
+
+            while(tmp < arr[i].e){
+                tmp += l;
+                ans++;
+            }
+        }
+
+        System.out.println(ans);
+
+   }
+}
