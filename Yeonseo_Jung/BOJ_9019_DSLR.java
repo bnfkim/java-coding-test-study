@@ -5,7 +5,7 @@ import java.util.*;
 
 public class BOJ_9019_DSLR {
     static int N, src, tar;
-    static String[] cmds = {"D", "S", "L", "R"};
+    static String[] cmd = {"D", "S", "L", "R"};
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -23,21 +23,21 @@ public class BOJ_9019_DSLR {
     }
 
     private static String getMinSol(int src, int tar) {
-        Map<Integer, String> cmdsMap = new HashMap<>();
-        Queue<Integer> queue = new ArrayDeque<>();
-        queue.offer(src);
-        cmdsMap.put(src, "");
+        Map<Integer, String> cmds = new HashMap<>();
+        Queue<Integer> q = new ArrayDeque<>();
+        q.offer(src);
+        cmds.put(src, "");
 
-        while (!queue.isEmpty()) {
-            int num = queue.poll();
+        while (!q.isEmpty()) {
+            int num = q.poll();
             if (num == tar)
-                return cmdsMap.get(num);
+                return cmds.get(num);
 
-            for (String cmd : cmds) {
-                int nextNum = getNextNum(num, cmd);
-                if (!cmdsMap.containsKey(nextNum)) {
-                    queue.offer(nextNum);
-                    cmdsMap.put(nextNum, cmdsMap.get(num) + cmd);
+            for (String c : cmd) {
+                int nextNum = getNextNum(num, c);
+                if (!cmds.containsKey(nextNum)) {
+                    q.offer(nextNum);
+                    cmds.put(nextNum, cmds.get(num) + c);
                 }
             }
         }
