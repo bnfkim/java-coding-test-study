@@ -16,7 +16,6 @@ public class BOJ_9019_DSLR {
             st = new StringTokenizer(br.readLine());
             src = Integer.parseInt(st.nextToken());
             tar = Integer.parseInt(st.nextToken());
-
             String result = getMinSol(src, tar);
             System.out.println(result);
         }
