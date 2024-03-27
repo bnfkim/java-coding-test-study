@@ -1,0 +1,37 @@
+package kk;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.StringTokenizer;
+
+public class asdf {
+	static int n, m;
+	static boolean valid[];
+	
+	public static void main(String[] args) throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		n = Integer.parseInt(br.readLine());
+		m = Integer.parseInt(br.readLine());
+		
+		valid = new boolean[n];
+		
+		int dp[] = new int[41];
+		dp[0] = dp[1] = 1;
+		dp[2] = 2;
+		
+		for(int i = 3; i < 41; i++)
+			dp[i] = dp[i-1]+dp[i-2];
+		
+		int idx = 1, res = 1;
+		for(int i = 0; i < m; i++) {
+			int end = Integer.parseInt(br.readLine());
+			res *= dp[end-idx];
+			idx = end+1;
+		}
+		res *= dp[n+1-idx];
+		System.out.println(res);
+		return;
+	}
+}
