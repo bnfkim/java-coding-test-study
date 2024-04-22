@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class BOJ_1092_배 {
-    // 15116km,	드
+    // 15116km,	329ms
     static int crainNum, boxNum;
     static int[] crains;
     static List<Integer> boxes;
